@@ -7,5 +7,9 @@ Field.prototype.getState = function() {
 };
 
 Field.prototype.claim = function(player) {
-  this.state = player;
+  if(this.getState() === "empty") {
+    this.state = player;
+  } else {
+    throw Error("Invalid move");
+  };
 };
